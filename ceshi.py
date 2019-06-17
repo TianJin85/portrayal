@@ -12,14 +12,15 @@ print(text)
 cut_text = jieba.cut(text,cut_all=False)
 result = " ".join(cut_text)
 #轮廓图片获取
-mask=np.array(Image.open('erci.png'))
+mask = np.array(Image.open(r'./static/erci.png'))
 # import ipdb;ipdb.set_trace()
-word_cloud=WordCloud(font_path='simhei.ttf', background_color='#333943', max_words=2000,repeat=True, mask=mask,min_font_size=1)
+# #333943
+word_cloud=WordCloud(font_path='simhei.ttf', background_color=None, max_words=2000,repeat=True, mask=mask,min_font_size=1, mode='RGBA')
 word_cloud.generate(result)
-backgroud_Image = plt.imread('未标题-1.jpg')
+backgroud_Image = plt.imread(r'./static/未标题-1.jpg')
 mg_colors = ImageColorGenerator(backgroud_Image)
 word_cloud.recolor(color_func=mg_colors)
-word_cloud.to_file('mask_wordcloud1.png')
+word_cloud.to_file(r'./static/mask_wordcloud1.png')
 
 #显示效果图
 plt.axis("off")
