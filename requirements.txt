@@ -1,0 +1,7 @@
+Flask
+wordcloud
+pymysql
+numpy
+Pillow
+matplotlib
+jieba
