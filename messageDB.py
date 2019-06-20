@@ -25,7 +25,7 @@ class message:
                 # 查询user_attribute_value信息
                 sql_attribute = "select `user_attribute_value`.`value` from `user_attribute_value` left join `user_attribute` on `user_attribute_value`.`user_attribute_id` = `user_attribute`.`id` where (`user_attribute_value`.`user_id` =%s and `user_attribute`.`group` = 'user' and `user_attribute`.`status` = 1) order by `sort` asc"
 
-                if cursor.execute(sql_user, user_id) > 0:  # 查询成功
+                if cursor.execute(sql_user, user_id) > 0:  # 查询成功 aaaa
 
                     for items in cursor.fetchall():
 
