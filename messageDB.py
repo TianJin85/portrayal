@@ -15,7 +15,7 @@ class message:
         values = ""
 
         # 剔除无效值
-        value_Wipe = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '[]', None, '', '无', 1, 2]
+        value_Wipe = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '[]', None, '', '无', int]
 
         try:
             with connection.cursor() as cursor:
@@ -30,7 +30,7 @@ class message:
                     for items in cursor.fetchall():
 
                         for item in items:
-                           if items[item] not in value_Wipe:
+                           if items[item] not in value_Wipe and type(items[item]) not in value_Wipe:
                                values += items[item]
 
                         if items['sex'] == 1:
